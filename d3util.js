@@ -24,4 +24,20 @@ function filterByValue(d, dim_aes, value) {
 	return result;
 }
 
+function sapply(arr, func) {
+	var result = [];
+	for (var i = 0; i < arr.length; ++i) {
+		result.push(
+			func(arr[i])
+		);
+	}
+	return result;
+}
 
+function replicate(N, func) {
+	var result = [];
+	for (var i = 0; i < N; ++i) {
+		result.push(func());
+	}
+	return result;
+}
