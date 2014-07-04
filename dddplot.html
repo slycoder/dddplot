@@ -1,60 +1,60 @@
 <html>
 	<head>
-		<script type="text/javascript" src="d3.min.js"></script>
-		<style type="text/css">
-			.axis path,
-			.axis line {
-				fill: none;
-				stroke: black;
-				shape-rendering: crispEdges;
-			}
-
-			.axis text {
-				font-family: sans-serif;
-				font-size: 11px;
-			}
-
-			.plotregion {
-				display: inline-table;
-				white-space: nowrap;
-			}
-
-			.facetregion {
-				border: 1px solid;
-				padding: 10px;
-			}
-
-			.topicregion {
-				border: 2px solid;
-				padding: 20px;
-			}
-
-			.singletopic {
-				background-color: Lavender;
-				border: 1px solid white;
-				padding: 20px;
-				display: inline-table;
-			}
-
-			.subplotregion {
-			}
-
-			.legendregion {
-			}
-
-			svg {
-				vertical-align: middle;
-			}
+		<script type="text/javascript" src="d3.min.js">
+		</script>
+		<script type="text/javascript" src="dddplot.js">
+		</script>
+		<style type="text/css" src="dddplot.css">
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript" src="dddplot.js">
-		</script>
-		<script type="text/javascript" src="dataframes.js">
-		</script>
-		<script type="text/javascript" src="lda.js">
-		</script>
-		<div class = "topicregion" id="topicregion">
-		</div>
+    <script type="text/javascript">
+// Generate some random data points.
+function genData(n) {
+	var x = [];
+	for (var i = 0; i < n; ++i) {
+		x.push([
+			i,
+			5 * i + Math.random() * 30,
+			i / 10 + Math.random() * 10,
+			['A', 'B', 'C', 'D'][Math.floor(Math.random() * 4)]
+		])
+	}
+	return x;
+}
+
+var data = genData(30);
+var myAes = {
+	y: getField(1),
+	x: getField(0)
+};
+var myOptions = {
+	xlab: "my x label",
+	ylab: "my y label",
+	title: "some title"
+}
+dddplot(data, myAes, [geomCircle], myOptions);
+dddplot(data, myAes, [geomLine], myOptions);
+
+myAes.color = getField(2);
+dddplot(data, myAes, [geomCircle]);
+dddplot(data, myAes, [geomLine]);
+dddplot(data, myAes, [geomLine, geomCircle]);
+
+myAes.size = getField(2);
+dddplot(data, myAes, [geomCircle]);
+
+myAes.color = getField(3);
+dddplot(data, myAes, [geomCircle]);
+
+dddplot(data, myAes, [geomBar]);
+
+myAes.facet = getField(3);
+dddplot(data, myAes, [geomCircle])
+
+myAes.facet = undefined;
+myAes.x = getField(3);
+dddplot(data, myAes, [geomCircle]);
+    </script>
 	</body>
 </html>

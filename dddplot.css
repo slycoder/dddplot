@@ -1,0 +1,43 @@
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font-family: sans-serif;
+  font-size: 11px;
+}
+
+.plotregion {
+  display: inline-table;
+  white-space: nowrap;
+}
+
+.facetregion {
+  border: 1px solid;
+  padding: 10px;
+}
+
+.topicregion {
+  border: 2px solid;
+  padding: 20px;
+}
+
+.singletopic {
+  background-color: Lavender;
+  border: 1px solid white;
+  padding: 20px;
+  display: inline-table;
+}
+
+.subplotregion {
+}
+
+.legendregion {
+}
+
+svg {
+  vertical-align: middle;
+}
