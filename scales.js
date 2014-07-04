@@ -58,7 +58,7 @@ function drawLegend(div, scale, drawer) {
 		.attr("class", "legendregion")
 		.append("svg");
 	var dims = [90, 28 * ticks.length + 40];
-	var padding = [20, 20];
+	var padding = [30, 20];
 	svg.attr("width", dims[0]).attr("height", dims[1]);
 	var groups = svg.selectAll("g")
 		.data(ticks).enter().append("g");
