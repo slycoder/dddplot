@@ -6,6 +6,10 @@ function isFactor(d, dim_aes) {
 	return typeof(dim_aes(d[0])) === 'string';
 }
 
+function isDate(d, dim_aes) {
+    return dim_aes(d[0]) instanceof Date;
+}
+
 function uniqueValues(d, dim_aes) {
 	var s = d3.set();
 	for (var i = 0; i < d.length; ++i) {
